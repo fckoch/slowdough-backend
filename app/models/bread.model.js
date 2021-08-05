@@ -17,3 +17,5 @@ Bread.getAll = result => {
     result(null, res);
   });
 };
+
+module.exports.Bread = Bread;
