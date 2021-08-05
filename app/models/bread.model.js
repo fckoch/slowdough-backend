@@ -13,7 +13,7 @@ Bread.getAll = result => {
       return;
     }
 
-    console.log("customers: ", res);
+    console.log("breads: ", res);
     result(null, res);
   });
 };
