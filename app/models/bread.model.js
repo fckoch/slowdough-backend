@@ -18,4 +18,4 @@ Bread.getAll = result => {
   });
 };
 
-module.exports.Bread = Bread;
+module.exports = Bread;
