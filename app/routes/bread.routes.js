@@ -6,6 +6,7 @@ module.exports = app => {
     // Retrieve all Breads
     router.get("/", breads.findAll);
     router.post("/", breads.create);
-
+    router.put("/:uuid", breads.update);
+    router.delete("/:uuid", breads.delete);
     app.use('/api/breads', router);
   };

@@ -19,7 +19,6 @@ exports.findAll = (req, res) => {
 
 // Create and Save a new Bread
 exports.create = (req, res) => {
-  console.log("bread request", req);
   if (!req.body.name) {
     res.status(400).send({
       message: "Content can not be empty!"
@@ -33,7 +32,7 @@ exports.create = (req, res) => {
     type: req.body.type
   };
 
-  // Save Tutorial in the database
+  // Save Bread in the database
   Bread.create(bread)
     .then(data => {
       res.send(data);
@@ -43,5 +42,55 @@ exports.create = (req, res) => {
         message:
           err.message || "Some error occurred while adding a new Bread."
       });
+    });
+};
+
+// Update Bread
+exports.update = (req, res) => {
+  console.log('aqui', req.params.uuid);
+  console.log('aqui body', req.body)
+  const uuid = req.params.uuid.toString();
+  Bread.update(req.body, {
+    where: { uuid: uuid}
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Bread updated"
+        });
+      } else {
+        res.send({
+          message: "Cannot update Bread, not valid body"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Bread"
+      })
+    });
+};
+
+// Delete Bread
+exports.delete = (req, res) => {
+  const uuid = req.params.uuid;
+  Bread.destroy({
+    where: { uuid: uuid }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Bread deleted"
+        });
+      } else {
+        res.send({
+          message: "Cannot delete Bread"
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error deleting Bread"
+      })
     });
 };
