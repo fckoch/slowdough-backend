@@ -1,21 +1,19 @@
-const sql = require("./db.js");
-
-// constructor
-const Bread = function(bread) {
-  this.name = bread.name;
-};
-
-Bread.getAll = result => {
-  sql.query("SELECT * FROM breads", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
+module.exports = (sequelize, Sequelize) => {
+  const Bread = sequelize.define("bread", {
+    uuid: {
+      type: Sequelize.STRING,
+      primaryKey: true
+    },
+    name: {
+      type: Sequelize.STRING
+    },
+    description: {
+      type: Sequelize.STRING
+    },
+    type: {
+      type: Sequelize.STRING
     }
-
-    console.log("breads: ", res);
-    result(null, res);
   });
-};
 
-module.exports = Bread;
+  return Bread;
+};
