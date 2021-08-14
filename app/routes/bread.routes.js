@@ -1,6 +1,11 @@
 module.exports = app => {
     const breads = require("../controllers/bread.controller.js");
 
+    var router = require("express").Router();
+
     // Retrieve all Breads
-    app.get("/breads", breads.findAll);
+    router.get("/", breads.findAll);
+    router.post("/", breads.create);
+
+    app.use('/api/breads', router);
   };
