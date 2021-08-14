@@ -23,5 +23,9 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5",
     "uuidv4": "^6.2.11"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.11.2",
+    "swagger-ui-express": "^4.1.6"
   }
 }

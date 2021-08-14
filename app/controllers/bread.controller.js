@@ -5,9 +5,18 @@ const Op = db.Sequelize.Op;
 
 // Retrieve all breads from the database.
 exports.findAll = (req, res) => {
+  /* 	#swagger.tags = ['Breads']
+      #swagger.description = 'Endpoint to list breads' */
+
+  /*	#swagger.parameters['obj'] = {
+        in: 'body',
+        description: 'Bread',
+        required: true,
+        schema: { $ref: "#/definitions/Bread" }
+  } */
   Bread.findAll()
     .then(data => {
-      res.send(data);
+      res.status(200).send(data);
     })
     .catch(err => {
       res.status(500).send({
