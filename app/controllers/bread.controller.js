@@ -47,9 +47,7 @@ exports.create = (req, res) => {
 
 // Update Bread
 exports.update = (req, res) => {
-  console.log('aqui', req.params.uuid);
-  console.log('aqui body', req.body)
-  const uuid = req.params.uuid.toString();
+  const uuid = req.params.uuid;
   Bread.update(req.body, {
     where: { uuid: uuid}
   })
