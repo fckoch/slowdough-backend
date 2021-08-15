@@ -14,10 +14,18 @@ const doc = {
     }
   ],
   definitions: {
+      AddBread: {
+        name: 'string',
+        description: 'string',
+        type: 'string',
+      },
       Bread: {
-          name: 'string',
-          description: 'string',
-          type: 'string',
+        uuid: '00000000-0000-0000-0000-000000000000',
+        name: 'string',
+        description: 'string',
+        type: 'string',
+        createdAt: 'Date',
+        upatedAt: 'Date'
       }
   }
 };

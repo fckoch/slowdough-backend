@@ -32,13 +32,16 @@
             "description": "Bread",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Bread"
+              "$ref": "#/definitions/AddBread"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Breads successfully obtained.",
+            "schema": {
+              "$ref": "#/definitions/Bread"
+            }
           },
           "500": {
             "description": "Internal Server Error"
@@ -116,7 +119,7 @@
     }
   },
   "definitions": {
-    "Bread": {
+    "AddBread": {
       "type": "object",
       "properties": {
         "name": {
@@ -130,6 +133,35 @@
         "type": {
           "type": "string",
           "example": "string"
+        }
+      }
+    },
+    "Bread": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "name": {
+          "type": "string",
+          "example": "string"
+        },
+        "description": {
+          "type": "string",
+          "example": "string"
+        },
+        "type": {
+          "type": "string",
+          "example": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "Date"
+        },
+        "upatedAt": {
+          "type": "string",
+          "example": "Date"
         }
       }
     }
