@@ -24,7 +24,22 @@
         "tags": [
           "Breads"
         ],
-        "description": "Endpoint to list breads",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BreadsResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Breads"
+        ],
+        "description": "",
         "parameters": [
           {
             "name": "obj",
@@ -38,52 +53,19 @@
         ],
         "responses": {
           "200": {
-            "description": "Breads successfully obtained.",
+            "description": "Success",
             "schema": {
-              "$ref": "#/definitions/Bread"
+              "$ref": "#/definitions/AddBreadResponse"
             }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      },
-      "post": {
-        "tags": [],
-        "description": "",
-        "parameters": [
-          {
-            "name": "obj",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "description": {
-                  "example": "any"
-                },
-                "type\r": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
     },
     "/breads/{uuid}": {
       "put": {
-        "tags": [],
+        "tags": [
+          "Breads"
+        ],
         "description": "",
         "parameters": [
           {
@@ -91,16 +73,30 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Bread",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddBread"
+            }
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddBreadResponse"
+            }
           }
         }
       },
       "delete": {
-        "tags": [],
+        "tags": [
+          "Breads"
+        ],
         "description": "",
         "parameters": [
           {
@@ -111,8 +107,11 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
           }
         }
       }
@@ -133,6 +132,26 @@
         "type": {
           "type": "string",
           "example": "string"
+        }
+      }
+    },
+    "AddBreadResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
+        },
+        "results": {
+          "$ref": "#/definitions/AddBread"
         }
       }
     },
@@ -162,6 +181,46 @@
         "upatedAt": {
           "type": "string",
           "example": "Date"
+        }
+      }
+    },
+    "BreadsResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bread"
+          }
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
         }
       }
     }

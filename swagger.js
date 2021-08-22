@@ -14,19 +14,36 @@ const doc = {
     }
   ],
   definitions: {
-      AddBread: {
-        name: 'string',
-        description: 'string',
-        type: 'string',
-      },
-      Bread: {
-        uuid: '00000000-0000-0000-0000-000000000000',
-        name: 'string',
-        description: 'string',
-        type: 'string',
-        createdAt: 'Date',
-        upatedAt: 'Date'
-      }
+    AddBread: {
+      name: 'string',
+      description: 'string',
+      type: 'string',
+    },
+    AddBreadResponse: {
+      message: 'string',
+      error: 'bool',
+      code: 'int',
+      results: { $ref: '#/definitions/AddBread' }
+    },
+    Bread: {
+      uuid: '00000000-0000-0000-0000-000000000000',
+      name: 'string',
+      description: 'string',
+      type: 'string',
+      createdAt: 'Date',
+      upatedAt: 'Date'
+    },
+    BreadsResponse: {
+      message: 'string',
+      error: 'bool',
+      code: 'int',
+      results: [{ $ref: '#/definitions/Bread' }]
+    },
+    Response: {
+      message: 'string',
+      error: 'bool',
+      code: 'int',
+    }
   }
 };
 
