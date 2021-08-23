@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,10 @@
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.5",
     "uuidv4": "^6.2.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "swagger-autogen": "^2.11.2",
+    "swagger-ui-express": "^4.1.6"
   }
 }
