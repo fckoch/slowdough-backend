@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Slowdough API",
+    "description": "Slow Dough",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Breads",
+      "description": "Endpoints"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/breads": {
+      "get": {
+        "tags": [
+          "Breads"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BreadsResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Breads"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Bread",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddBread"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddBreadResponse"
+            }
+          }
+        }
+      }
+    },
+    "/breads/{uuid}": {
+      "put": {
+        "tags": [
+          "Breads"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Bread",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddBread"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AddBreadResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Breads"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddBread": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "string"
+        },
+        "description": {
+          "type": "string",
+          "example": "string"
+        },
+        "type": {
+          "type": "string",
+          "example": "string"
+        }
+      }
+    },
+    "AddBreadResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
+        },
+        "results": {
+          "$ref": "#/definitions/AddBread"
+        }
+      }
+    },
+    "Bread": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "name": {
+          "type": "string",
+          "example": "string"
+        },
+        "description": {
+          "type": "string",
+          "example": "string"
+        },
+        "type": {
+          "type": "string",
+          "example": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "example": "Date"
+        },
+        "upatedAt": {
+          "type": "string",
+          "example": "Date"
+        }
+      }
+    },
+    "BreadsResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bread"
+          }
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "string"
+        },
+        "error": {
+          "type": "string",
+          "example": "bool"
+        },
+        "code": {
+          "type": "string",
+          "example": "int"
+        }
+      }
+    }
+  }
+}
