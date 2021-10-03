@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "https://slowdough-api.herokuapp.com/"
+  origin: "https://slowdough-backend.herokuapp.com/"
 };
 
 app.use(cors(corsOptions));
@@ -26,7 +26,7 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to slow dough application." });
+  res.json({ message: "Welcome to slow-dough application." });
 });
 
 require("./app/routes/bread.routes.js")(app);
